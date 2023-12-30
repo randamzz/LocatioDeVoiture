@@ -1,0 +1,504 @@
+{% extends "base.html" %}
+ {% block content %}
+ <style>   
+ .ooo:hover {
+  background-color: orange;
+ }
+
+</style>
+        <!-- Hero Start -->
+        <div class="container-fluid py-5 mb-5 hero-header ">
+          <div class="container py-5">
+              <div class="row g-5 align-items-center">
+                  <div class="col-md-12 col-lg-7">
+                      <h4 class="mb-3 text-secondary">Choose from a wide selection of cars at multiple locations!</h4>
+                      <h1 class="mb-5 display-3 text-primary">Rent your dream car with us</h1>
+                      <div class="position-relative mx-auto">
+                          <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
+                          <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Search Now</button>
+                      </div>
+                  </div>
+                  <div class="col-md-12 col-lg-5">
+                      <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                          <div class="carousel-inner" role="listbox">
+                              <div class="carousel-item active rounded">
+                                  <img src="https://i.pinimg.com/564x/2a/6e/42/2a6e429b61666280ddb67e019239b239.jpg" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                              </div>
+                              <div class="carousel-item rounded">
+                                  <img src="https://pbs.twimg.com/media/EAQ_4TgXsAAOqX5?format=jpg&name=large" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                              </div>
+                          </div>
+                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Hero End -->
+
+
+      <!-- Featurs Section Start -->
+      <div class="container-fluid car-shop py-5">
+      <div class="container-fluid featurs py-5">
+          <div class="container py-5">
+              <div class="row g-4">
+                  <div class="col-md-6 col-lg-3">
+                      <div class="featurs-item text-center rounded bg-light p-4">
+                          <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                              <i class="fas fa-car-side fa-3x text-white"></i>
+                          </div>
+                          <div class="featurs-content text-center">
+                              <h5>Satisfaction </h5>
+                              <p class="mb-0">Your satisfaction priority</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="featurs-item text-center rounded bg-light p-4">
+                          <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                              <i class="fas fa-user-shield fa-3x text-white"></i>
+                          </div>
+                          <div class="featurs-content text-center">
+                              <h5>Security Payment</h5>
+                              <p class="mb-0">100% security payment</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="featurs-item text-center rounded bg-light p-4">
+                          <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                              <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                          </div>
+                          <div class="featurs-content text-center">
+                              <h5>30 Day Return</h5>
+                              <p class="mb-0">30 day money guarantee</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                      <div class="featurs-item text-center rounded bg-light p-4">
+                          <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                              <i class="fa fa-phone-alt fa-3x text-white"></i>
+                          </div>
+                          <div class="featurs-content text-center">
+                              <h5>24/7 Support</h5>
+                              <p class="mb-0">Support every time fast</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Featurs Section End -->
+
+      <div class="container py-5">
+        <div class="tab-class text-center">
+            <div class="row g-4">
+                <div class="col-lg-4 text-start">
+                    <h1>Our Popular Cars</h1>
+                </div>
+                <div class="col-lg-8 text-end">
+                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 ooo rounded-pill active" data-bs-toggle="pill" href="#all-cars" onclick="showCars('all')">
+                                <span class="text-dark " style="width: 130px;">All Cars</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex py-2 m-2 ooo rounded-pill" data-bs-toggle="pill" href="#luxury-cars" onclick="showCars('luxury')">
+                                <span class="text-dark " style="width: 130px;">Luxury cars</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 ooo rounded-pill" data-bs-toggle="pill" href="#standard-cars" onclick="showCars('standard')">
+                                <span class="text-dark " style="width: 130px;">Standard Cars</span>                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="d-flex m-2 py-2  rounded-pill ooo" data-bs-toggle="pill" href="#economy-cars" onclick="showCars('economy')">
+                                <span class="text-dark " style="width: 130px;">Economy Cars</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="car-container">
+            <!-- Luxury Car -->
+            <div class="col-md-6 col-lg-4 col-xl-3 car-item luxury-car">
+                <div class="rounded position-relative">
+                    <div class="car-img">
+                        <img src="https://i.pinimg.com/564x/3a/b9/d4/3ab9d4868e9294b1b98cb86b04650234.jpg" class="img-fluid w-100 rounded-top" alt="Luxury Car">
+                    </div>
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Luxury</div>
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4>Mercedes S-Class</h4>
+                        <p>Experience the epitome of luxury with the Mercedes S-Class. Elegant design, advanced features, and unparalleled comfort.</p>
+                        <div class="d-flex justify-content-between flex-lg-wrap">
+                            <p class="text-dark fs-5 fw-bold mb-0">$99.99 / day</p>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Economy Car -->
+            <div class="col-md-6 col-lg-4 col-xl-3 car-item economy-car">
+                <div class="rounded position-relative">
+                    <div class="car-img">
+                        <img src="https://i.pinimg.com/564x/15/69/7c/15697cc1fc41530f29b4c5ecbc51e205.jpg" class="img-fluid w-100 rounded-top" alt="Economy Car">
+                    </div>
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Economy</div>
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4>Honda Civic</h4>
+                        <p>An affordable and fuel-efficient option for city drives. The Honda Civic combines style and practicality for your everyday commute.</p>
+                        <div class="d-flex justify-content-between flex-lg-wrap">
+                            <p class="text-dark fs-5 fw-bold mb-0">$39.99 / day</p>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUV -->
+            <div class="col-md-6 col-lg-4 col-xl-3 car-item suv-car">
+                <div class="rounded position-relative">
+                    <div class="car-img">
+                        <img src="https://i.pinimg.com/564x/e8/93/e6/e893e6882c407d96d657ae5008818c5e.jpg" class="img-fluid w-100 rounded-top" alt="SUV Car">
+                    </div>
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">SUV</div>
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4>Toyota RAV4</h4>
+                        <p>A versatile and spacious SUV perfect for family adventures. The Toyota RAV4 offers comfort and safety for your road trips.</p>
+                        <div class="d-flex justify-content-between flex-lg-wrap">
+                            <p class="text-dark fs-5 fw-bold mb-0">$79.99 / day</p>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standard Car -->
+            <div class="col-md-6 col-lg-4 col-xl-3 car-item standard-car">
+                <div class="rounded position-relative">
+                    <div class="car-img">
+                        <img src="https://i.pinimg.com/564x/7c/3d/ba/7c3dbaa3055e153b1bebe4715a3b2541.jpg" class="img-fluid w-100 rounded-top" alt="Standard Car">
+                    </div>
+                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Standard</div>
+                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                        <h4>Ford Fusion</h4>
+                        <p>A reliable and comfortable choice for daily commuting. The Ford Fusion strikes a balance between performance and efficiency.</p>
+                        <div class="d-flex justify-content-between flex-lg-wrap">
+                            <p class="text-dark fs-5 fw-bold mb-0">$49.99 / day</p>
+                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for other cars -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function showCars(category) {
+        // Hide all cars
+        document.querySelectorAll('.car-item').forEach(function(car) {
+            car.style.display = 'none';
+        });
+    
+        // Show cars based on the selected category
+        if (category !== 'all') {
+            document.querySelectorAll('.' + category + '-car').forEach(function(car) {
+                car.style.display = 'block';
+            });
+        } else {
+            // If 'All Cars' is selected, show all cars
+            document.querySelectorAll('.car-item').forEach(function(car) {
+                car.style.display = 'block';
+            });
+        }
+    }
+</script>
+
+   <!-- Fruits Shop End-->
+
+
+
+      <!-- Banner Section Start-->
+      <div class="container-fluid banner bg-secondary my-5">
+          <div class="container py-5">
+              <div class="row g-4 align-items-center">
+                  <div class="col-lg-6">
+                      <div class="py-4">
+                          <h1 class="display-3 text-white">Experience luxury </h1>
+                          <p class="fw-normal display-3 text-dark mb-4"> only with us !</p>
+                          <p class="mb-4 text-dark"> Elevate your journey with our luxury cars at an exclusive 30% discount. Drive in style without breaking the bank. Limited time offer, seize the savings!</p>
+                          <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">Rent</a>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="position-relative">
+                        <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-relative " style="width: 160px; height: 150px; top: 0; left: 0;">
+                          <span class="h4 text-muted mb-0">-</span>
+                          <h1 style="font-size: 100px;">30</h1>
+                              <div class="d-flex flex-column">
+                                  <span class="h2 mb-0">%</span>
+                              </div>
+                          </div>
+                          <img src="https://pngimg.com/d/bmw_PNG99544.png" class="img-fluid w-100 rounded" alt="">
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Banner Section End -->
+
+
+<!-- Best Cars Rented Start -->
+<div class="container-fluid py-5">
+  <div class="container py-5">
+      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+          <h1 class="display-4">Best Cars Rented</h1>
+          <p>Explore our top-rated cars that have been highly preferred by our customers.</p>
+      </div>
+      <div class="row g-4">
+          <div class="col-lg-6 col-xl-4">
+              <div class="p-4 rounded bg-light">
+                  <div class="row align-items-center">
+                      <div class="col-6">
+                          <img src="https://i.pinimg.com/564x/9c/00/7c/9c007cdaffe0d187b5579e13a52e3fb2.jpg" class="img-fluid rounded-circle w-100" alt="Luxury Car">
+                      </div>
+                      <div class="col-6">
+                          <a href="#" class="h5">Volkswagen Tiguan </a>
+                          <div class="d-flex my-3">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                          <h4 class="mb-3">$99.99 / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-xl-4">
+              <div class="p-4 rounded bg-light">
+                  <div class="row align-items-center">
+                      <div class="col-6">
+                          <img src="https://i.pinimg.com/564x/d9/5f/e5/d95fe5c8c198b8165b83a57fbb5e7847.jpg" class="img-fluid rounded-circle w-100" alt="Economy Car">
+                      </div>
+                      <div class="col-6">
+                          <a href="#" class="h5">Hyundai Santafe</a>
+                          <div class="d-flex my-3">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                          <h4 class="mb-3">$39.99 / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- SUV Car -->
+          <div class="col-lg-6 col-xl-4">
+              <div class="p-4 rounded bg-light">
+                  <div class="row align-items-center">
+                      <div class="col-6">
+                          <img src="https://i.pinimg.com/564x/76/09/08/76090892e67fbebca7ce84d4b5419ced.jpg" class="img-fluid rounded-circle w-100" alt="SUV Car">
+                      </div>
+                      <div class="col-6">
+                          <a href="#" class="h5">Range Rover Evoque</a>
+                          <div class="d-flex my-3">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                          <h4 class="mb-3">$79.99 / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Add more cars as needed -->
+      </div>
+  </div>
+</div>
+<!-- Best Cars Rented End -->
+
+
+
+      <!-- Fact Start -->
+      <div class="container-fluid py-5">
+          <div class="container">
+              <div class="bg-light p-5 rounded">
+                  <div class="row g-4 justify-content-center">
+                      <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="counter bg-white rounded p-5">
+                              <i class="fa fa-users text-secondary"></i>
+                              <h4>satisfied customers</h4>
+                              <h1>1963</h1>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="counter bg-white rounded p-5">
+                              <i class="fa fa-users text-secondary"></i>
+                              <h4>quality of service</h4>
+                              <h1>99%</h1>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="counter bg-white rounded p-5">
+                              <i class="fa fa-users text-secondary"></i>
+                              <h4>quality certificates</h4>
+                              <h1>33</h1>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xl-3">
+                          <div class="counter bg-white rounded p-5">
+                              <i class="fa fa-users text-secondary"></i>
+                              <h4>Available Cars</h4>
+                              <h1>10</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Fact Start -->
+
+<!-- Testimonial Start -->
+<div class="container-fluid testimonial py-5">
+  <div class="container py-5">
+      <div class="testimonial-header text-center">
+          <h4 class="text-primary">Our Testimonials</h4>
+          <h1 class="display-5 mb-5 text-dark">What Our Clients Are Saying!</h1>
+      </div>
+      <div class="owl-carousel testimonial-carousel">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item img-border-radius bg-light rounded p-4">
+              <div class="position-relative">
+                  <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                  <div class="mb-4 pb-4 border-bottom border-secondary">
+                      <p class="mb-0">I had a fantastic experience renting a luxury car from DriveCraft. The vehicle was in excellent condition, and the entire process was smooth. Highly recommended!</p>
+                  </div>
+                  <div class="d-flex align-items-center flex-nowrap">
+                      <div class="bg-secondary rounded">
+                          <img src="https://i.pinimg.com/736x/e4/07/39/e4073972bc85ba03d015150892e638ad.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="Client Image 1">
+                      </div>
+                      <div class="ms-4 d-block">
+                          <h4 class="text-dark">John Smith</h4>
+                          <p class="m-0 pb-3">Business Professional</p>
+                          <div class="d-flex pe-5">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item img-border-radius bg-light rounded p-4">
+              <div class="position-relative">
+                  <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                  <div class="mb-4 pb-4 border-bottom border-secondary">
+                      <p class="mb-0">My experience with DriveCraft was outstanding. The selection of cars is impressive, and the staff is incredibly helpful. I'll definitely be a returning customer!</p>
+                  </div>
+                  <div class="d-flex align-items-center flex-nowrap">
+                      <div class="bg-secondary rounded">
+                          <img src="https://i.pinimg.com/564x/1e/b9/5a/1eb95a3eaef402828b3e539006afde30.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="Client Image 2">
+                      </div>
+                      <div class="ms-4 d-block">
+                          <h4 class="text-dark">Emily Johnson</h4>
+                          <p class="m-0 pb-3">Marketing Professional</p>
+                          <div class="d-flex pe-5">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-item img-border-radius bg-light rounded p-4">
+              <div class="position-relative">
+                  <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                  <div class="mb-4 pb-4 border-bottom border-secondary">
+                      <p class="mb-0">Renting a car from DriveCraft was a breeze. The online booking system is user-friendly, and the prices are competitive. I'll definitely recommend it to friends!</p>
+                  </div>
+                  <div class="d-flex align-items-center flex-nowrap">
+                      <div class="bg-secondary rounded">
+                          <img src="https://i.pinimg.com/564x/e7/6b/71/e76b7113300f60cf1c584ee8b7a6ced8.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="Client Image 3">
+                      </div>
+                      <div class="ms-4 d-block">
+                          <h4 class="text-dark">Michael Anderson</h4>
+                          <p class="m-0 pb-3">Travel Enthusiast</p>
+                          <div class="d-flex pe-5">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-item img-border-radius bg-light rounded p-4">
+              <div class="position-relative">
+                  <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                  <div class="mb-4 pb-4 border-bottom border-secondary">
+                      <p class="mb-0">The service at DriveCraft exceeded my expectations. The staff was friendly, and the car was delivered on time and in immaculate condition. Great job!</p>
+                  </div>
+                  <div class="d-flex align-items-center flex-nowrap">
+                      <div class="bg-secondary rounded">
+                          <img src="https://i.pinimg.com/564x/53/9d/47/539d47e3ea6a9e93cab3da37610cfcd8.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="Client Image 4">
+                      </div>
+                      <div class="ms-4 d-block">
+                          <h4 class="text-dark">Jessica Miller</h4>
+                          <p class="m-0 pb-3">Business Owner</p>
+                          <div class="d-flex pe-5">
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                              <i class="fas fa-star text-primary"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+
+
+ {% endblock %}
