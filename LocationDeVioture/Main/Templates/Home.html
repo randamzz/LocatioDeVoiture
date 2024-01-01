@@ -5,6 +5,253 @@
   background-color: orange;
  }
 
+.slider_section .carousel {
+  position: unset;
+}
+
+.slider_section .slider_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slider_section .slider_container .img-box {
+  -webkit-box-flex: 2.5;
+      -ms-flex: 2.5;
+          flex: 2.5;
+}
+
+.slider_section .slider_container .img-box img {
+  width: 100%;
+}
+
+.slider_section .slider_container .detail_container {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #240a5e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slider_section .slider_container .detail_container #carouselExampleControls {
+  width: 100%;
+}
+
+.slider_section .slider_container .detail_container .detail-box {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.slider_section .slider_container .detail_container .detail-box h1 {
+  font-family: "Open Sans",
+ sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fefdfc;
+  font-size: 3.5rem;
+}
+
+.slider_section .slider_container .detail_container .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #f22324;
+  color: #fefdfc;
+  border-radius: 0;
+  border: 1px solid #f22324;
+  text-transform: uppercase;
+  margin-top: 35px;
+}
+
+.slider_section .slider_container .detail_container .detail-box a:hover {
+  background-color: transparent;
+  color: #f22324;
+}
+
+.slider_section .carousel-control-prev,
+.slider_section .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  left: 0;
+  opacity: 1;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-repeat: no-repeat;
+  background-color: #240a5e;
+  background-size: 20px;
+  background-position: center;
+}
+
+.slider_section .carousel-control-prev {
+  top: 15%;
+  background-image: url(../images/prev.png);
+}
+
+.slider_section .carousel-control-next {
+  top: initial;
+  bottom: 15%;
+  background-image: url(../images/next.png);
+}
+
+.book_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateY(-75px);
+          transform: translateY(-75px);
+}
+
+.book_section .form_container {
+  -webkit-box-flex: 2.5;
+      -ms-flex: 2.5;
+          flex: 2.5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.book_section .img-box {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 45px;
+}
+
+.book_section .img-box img {
+  width: 100%;
+}
+
+.book_section form {
+  width: 75%;
+  padding: 15px 35px;
+  background-color: #fefdfc;
+  -webkit-box-shadow: 0px 0px 20px 11px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 0px 20px 11px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+}
+
+.book_section form label {
+  color: #656565;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+.book_section form .form-control {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #8e8e8e;
+  color: #000000;
+}
+
+.book_section form .form-control::-webkit-input-placeholder {
+  color: #1d1c1c;
+}
+
+.book_section form .form-control:-ms-input-placeholder {
+  color: #1d1c1c;
+}
+
+.book_section form .form-control::-ms-input-placeholder {
+  color: #1d1c1c;
+}
+
+.book_section form .form-control::placeholder {
+  color: #1d1c1c;
+}
+
+.book_section form .btn-container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.book_section form .btn-container button {
+  display: inline-block;
+  padding: 10px 65px;
+  background-color: #240a5e;
+  color: #fefdfc;
+  border-radius: 0;
+  border: 1px solid #240a5e;
+  margin-top: 25px;
+}
+
+.book_section form .btn-container button:hover {
+  background-color: transparent;
+  color: #240a5e;
+}
+
+.book_section form .btn-container button:hover {
+  color: #1b0847;
+}
+form {
+    padding: 0 2em;
+}
+.login_form {
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.form__input {
+    width: 100%;
+    border:0px solid transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    padding: 1em .5em .5em;
+    padding-left: 2em;
+    outline:none;
+    margin:1.5em auto;
+    transition: all .5s ease;
+}
+
+.form__input:focus {
+    border-bottom-color: orange;
+    box-shadow: 0 0 5px orange; 
+    border-radius: 4px;
+}
+.car-item {
+            height: 100%;
+        }
+
+        .car-box {
+            height: 100%;
+        }
+
+        .car-img {
+            height: 400px; /* Set the desired height for the images */
+            overflow: hidden;
+        }
+
+        .car-img img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
 </style>
         <!-- Hero Start -->
         <div class="container-fluid py-5 mb-5 hero-header ">
@@ -42,12 +289,103 @@
           </div>
       </div>
       <!-- Hero End -->
+ <!-- About Start -->
+     <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="https://i.pinimg.com/564x/4c/26/16/4c2616c1ac314f93ee9b5efbc11ea6b8.jpg">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="https://i.pinimg.com/564x/7d/6d/cc/7d6dcc6a512e76640dfc6c60e3029dca.jpg" style="margin-top: 20%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="https://i.pinimg.com/564x/4d/b6/36/4db63650b04adc62fcd08d3a866303b4.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
+                    <h1 class="mb-4">Welcome to <i class="fa fa-car text-primary me-2"></i>DriveCraft</h1>
+                    <p class="mb-4">At DriveCraft, we offer more than just cars; we provide a tailored experience. Choose from a wide array of options, including luxury, vintage, standard, and economy vehicles, all designed to fit your budget and style.</p>
+                    <p class="mb-4">Our innovative services allow your chosen car to be delivered right to your doorstep. What's more, you can even share your car when not in use, turning it into an earning asset. </p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">4</h1>
+                                <div class="ps-4">
+                                    <p class="mb-0">Years of</p>
+                                    <h6 class="text-uppercase mb-0">Experience</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                <div class="ps-4">
+                                    <p class="mb-0">Popular</p>
+                                    <h6 class="text-uppercase mb-0">Cars</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn rounded-pill text-primary py-3 px-5 mt-2 " style="border-color: orange;" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- About End -->
 
+<!--Rent ur car start-->
+<div class="container-fluid banner bg-secondary my-5">
+    <div class="container py-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+            <div class="py-4">
+              <h1 class="display-3 text-white">Earn money with us</h1>
+              <p class="fw-normal display-3 text-dark mb-4">by renting your car!</p>
+              <p class="mb-4 text-dark">Now, you can monetize your unused car by renting it out with us. Experience luxury with our exclusive fleet of cars. Make money effortlessly during the periods when you're not using your car. It's a simple way to earn with your idle vehicle!
+            </p>
+            </div>
+          </div>
+        <div class="col-lg-5">
+          <div class="position-relative">
+            <form class="p-4 rounded login_form">
+                <center><h2 class="text-primary">Rent your car</h2></center>
+                <div class="mb-3">
+                  <input type="text" class="form-control rounded" id="carBrand" placeholder="Enter car brand">
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control rounded" id="carModel" placeholder="Enter car model">
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control rounded" id="carYear" placeholder="Enter car year">
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control rounded" id="carFuel" placeholder="Enter fuel type">
+                </div>
+                <div class="mb-3">
+                  <input type="file" class="form-control rounded" id="carImage">
+                </div>
+                <button type="submit" class="btn btn-primary border-0 border-secondary rounded-pill text-white w-100">Submit</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!--Rent ur car end -->
 
-      <!-- Featurs Section Start -->
-      <div class="container-fluid car-shop py-5">
-      <div class="container-fluid featurs py-5">
-          <div class="container py-5">
+<!-- Featurs Section Start -->
+      <div class="container-fluid car-shop py-3">
+      <div class="container-fluid featurs py-3">
+          <div class="container py-3">
               <div class="row g-4">
                   <div class="col-md-6 col-lg-3">
                       <div class="featurs-item text-center rounded bg-light p-4">
@@ -96,8 +434,9 @@
               </div>
           </div>
       </div>
-      <!-- Featurs Section End -->
+<!-- Featurs Section End -->
 
+<!-- Popular Start -->
       <div class="container py-5">
         <div class="tab-class text-center">
             <div class="row g-4">
@@ -129,84 +468,81 @@
                 </div>
             </div>
         </div>
-
-        <div class="row g-4" id="car-container">
-            <!-- Luxury Car -->
-            <div class="col-md-6 col-lg-4 col-xl-3 car-item luxury-car">
-                <div class="rounded position-relative">
-                    <div class="car-img">
-                        <img src="https://i.pinimg.com/564x/3a/b9/d4/3ab9d4868e9294b1b98cb86b04650234.jpg" class="img-fluid w-100 rounded-top" alt="Luxury Car">
+            <div class="row g-4" id="car-container">
+                <!-- Luxury Car -->
+                <div class="col-md-6 col-lg-4 col-xl-3 car-item luxury-car">
+                    <div class="rounded position-relative car-box">
+                        <div class="car-img">
+                            <img src="https://i.pinimg.com/564x/3a/b9/d4/3ab9d4868e9294b1b98cb86b04650234.jpg" class="img-fluid w-100 rounded-top" alt="Luxury Car">
+                        </div>
+                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Luxury</div>
+                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                            <h4>Mercedes S-Class</h4>
+                            <p>Experience the epitome of luxury with the Mercedes S-Class. Elegant design, advanced features, and unparalleled comfort.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">999 MAD / day</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Luxury</div>
-                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                        <h4>Mercedes S-Class</h4>
-                        <p>Experience the epitome of luxury with the Mercedes S-Class. Elegant design, advanced features, and unparalleled comfort.</p>
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold mb-0">$99.99 / day</p>
-                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                </div>
+        
+                <!-- Economy Car -->
+                <div class="col-md-6 col-lg-4 col-xl-3 car-item economy-car">
+                    <div class="rounded position-relative car-box">
+                        <div class="car-img">
+                            <img src="https://i.pinimg.com/564x/15/69/7c/15697cc1fc41530f29b4c5ecbc51e205.jpg" class="img-fluid w-100 rounded-top" alt="Economy Car">
+                        </div>
+                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Economy</div>
+                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                            <h4>Honda Civic</h4>
+                            <p>An affordable and fuel-efficient option for city drives, combines style and practicality for your everyday commute.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">399 MAD / day</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- SUV Car -->
+                <div class="col-md-6 col-lg-4 col-xl-3 car-item suv-car">
+                    <div class="rounded position-relative car-box">
+                        <div class="car-img">
+                            <img src="https://i.pinimg.com/564x/e8/93/e6/e893e6882c407d96d657ae5008818c5e.jpg" class="img-fluid w-100 rounded-top" alt="SUV Car">
+                        </div>
+                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">SUV</div>
+                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                            <h4>Toyota RAV4</h4>
+                            <p>A versatile and spacious SUV perfect for family adventures. The Toyota RAV4 offers comfort and safety for your road trips.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">799 MAD / day</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Standard Car -->
+                <div class="col-md-6 col-lg-4 col-xl-3 car-item standard-car">
+                    <div class="rounded position-relative car-box">
+                        <div class="car-img">
+                            <img src="https://i.pinimg.com/564x/7c/3d/ba/7c3dbaa3055e153b1bebe4715a3b2541.jpg" class="img-fluid w-100 rounded-top" alt="Standard Car">
+                        </div>
+                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Standard</div>
+                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                            <h4>Ford Fusion</h4>
+                            <p>A reliable and comfortable choice for daily commuting. The Ford Fusion strikes a balance between performance and efficiency.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">499 MAD / day</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Economy Car -->
-            <div class="col-md-6 col-lg-4 col-xl-3 car-item economy-car">
-                <div class="rounded position-relative">
-                    <div class="car-img">
-                        <img src="https://i.pinimg.com/564x/15/69/7c/15697cc1fc41530f29b4c5ecbc51e205.jpg" class="img-fluid w-100 rounded-top" alt="Economy Car">
-                    </div>
-                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Economy</div>
-                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                        <h4>Honda Civic</h4>
-                        <p>An affordable and fuel-efficient option for city drives. The Honda Civic combines style and practicality for your everyday commute.</p>
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold mb-0">$39.99 / day</p>
-                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SUV -->
-            <div class="col-md-6 col-lg-4 col-xl-3 car-item suv-car">
-                <div class="rounded position-relative">
-                    <div class="car-img">
-                        <img src="https://i.pinimg.com/564x/e8/93/e6/e893e6882c407d96d657ae5008818c5e.jpg" class="img-fluid w-100 rounded-top" alt="SUV Car">
-                    </div>
-                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">SUV</div>
-                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                        <h4>Toyota RAV4</h4>
-                        <p>A versatile and spacious SUV perfect for family adventures. The Toyota RAV4 offers comfort and safety for your road trips.</p>
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold mb-0">$79.99 / day</p>
-                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Standard Car -->
-            <div class="col-md-6 col-lg-4 col-xl-3 car-item standard-car">
-                <div class="rounded position-relative">
-                    <div class="car-img">
-                        <img src="https://i.pinimg.com/564x/7c/3d/ba/7c3dbaa3055e153b1bebe4715a3b2541.jpg" class="img-fluid w-100 rounded-top" alt="Standard Car">
-                    </div>
-                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Standard</div>
-                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                        <h4>Ford Fusion</h4>
-                        <p>A reliable and comfortable choice for daily commuting. The Ford Fusion strikes a balance between performance and efficiency.</p>
-                        <div class="d-flex justify-content-between flex-lg-wrap">
-                            <p class="text-dark fs-5 fw-bold mb-0">$49.99 / day</p>
-                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat for other cars -->
-        </div>
     </div>
 </div>
-
 <script>
     function showCars(category) {
         // Hide all cars
@@ -227,12 +563,9 @@
         }
     }
 </script>
+<!-- Popular End-->
 
-   <!-- Fruits Shop End-->
-
-
-
-      <!-- Banner Section Start-->
+<!-- Banner Section Start-->
       <div class="container-fluid banner bg-secondary my-5">
           <div class="container py-5">
               <div class="row g-4 align-items-center">
@@ -286,8 +619,8 @@
                               <i class="fas fa-star text-primary"></i>
                               <i class="fas fa-star"></i>
                           </div>
-                          <h4 class="mb-3">$99.99 / day</h4>
-                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                          <h4 class="mb-3">799 MAD / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
                       </div>
                   </div>
               </div>
@@ -308,8 +641,8 @@
                               <i class="fas fa-star text-primary"></i>
                               <i class="fas fa-star"></i>
                           </div>
-                          <h4 class="mb-3">$39.99 / day</h4>
-                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                          <h4 class="mb-3">399 MAD / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
                       </div>
                   </div>
               </div>
@@ -331,8 +664,8 @@
                               <i class="fas fa-star text-primary"></i>
                               <i class="fas fa-star"></i>
                           </div>
-                          <h4 class="mb-3">$79.99 / day</h4>
-                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Rent now</a>
+                          <h4 class="mb-3">799 MAD  / day</h4>
+                          <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-car me-2 text-primary"></i> Rent now</a>
                       </div>
                   </div>
               </div>
@@ -345,7 +678,7 @@
 
 
 
-      <!-- Fact Start -->
+<!-- Fact Start -->
       <div class="container-fluid py-5">
           <div class="container">
               <div class="bg-light p-5 rounded">
@@ -382,7 +715,7 @@
               </div>
           </div>
       </div>
-      <!-- Fact Start -->
+ <!-- Fact Start -->
 
 <!-- Testimonial Start -->
 <div class="container-fluid testimonial py-5">
@@ -417,7 +750,6 @@
                   </div>
               </div>
           </div>
-
           <!-- Testimonial 2 -->
           <div class="testimonial-item img-border-radius bg-light rounded p-4">
               <div class="position-relative">
@@ -443,7 +775,6 @@
                   </div>
               </div>
           </div>
-
           <!-- Testimonial 3 -->
           <div class="testimonial-item img-border-radius bg-light rounded p-4">
               <div class="position-relative">
@@ -469,7 +800,6 @@
                   </div>
               </div>
           </div>
-
           <!-- Testimonial 4 -->
           <div class="testimonial-item img-border-radius bg-light rounded p-4">
               <div class="position-relative">

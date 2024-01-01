@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Main.urls')) ,
     path('user/', include(('UsersApp.urls', 'UsersApp'), namespace='UsersApp')),
+    path('car/', include(('CarsApp.urls', 'CarsApp'), namespace='CarsApp')),
+
     ]
