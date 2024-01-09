@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container ">
+    <div class="container-fluid page-header py-5" style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
+        <h1 class="text-center text-white display-6">Cars List</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Admin</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Cars</a></li>
+        </ol>
+    </div>
+ <br>   <a href="{% url 'AdminApp:create_car' %}" class="btn btn-outline-primary">Add Car</a>
+<table class="table center">
+    <thead class="center">
+      <tr>
+        <th scope="col">#</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>License Plate</th>
+        <th>Daily Price</th>
+        <th>Date of Creation</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="center">
+      {% for voiture in object_list %}
+      <tr>
+          <th scope="row">{{ voiture.id }}</th>  
+          <td>{{ voiture.marque }}</td>
+          <td>{{ voiture.model }}</td>
+          <td>{{ voiture.matricule }}</td>
+          <td>{{ voiture.prix_jour }} MAD</td>
+          <td>{{ voiture.date_de_creation }}</td>
+
+          <td>
+              <a href="{% url 'AdminApp:edit_car' pk=voiture.pk %}" class="btn btn-primary">Edit</a>
+              <a href="{% url 'AdminApp:delete_car' pk=voiture.pk %}" class="btn btn-danger">Delete</a> 
+
+          </td>
+      </tr>
+  {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

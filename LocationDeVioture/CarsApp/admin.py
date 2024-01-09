@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import Voiture
+class AdminCars (admin.ModelAdmin) :
+    list_display = ('marque', 'model', 'matricule')
+admin.site.register(Voiture)

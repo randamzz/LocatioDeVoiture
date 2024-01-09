@@ -22,5 +22,6 @@ urlpatterns = [
     path('',include('Main.urls')) ,
     path('user/', include(('UsersApp.urls', 'UsersApp'), namespace='UsersApp')),
     path('car/', include(('CarsApp.urls', 'CarsApp'), namespace='CarsApp')),
+    path('SupperAdmin/', include(('AdminApp.urls', 'AdminApp'), namespace='AdminApp')),
 
     ]

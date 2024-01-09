@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'css/register.css' %}" rel="stylesheet">
+<div class="container-fluid">
+    <div class="container-fluid page-header py-5" style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
+        <h1 class="text-center text-white display-6">Add a car </h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Admin</a></li>
+            <li class="breadcrumb-item text-dark"><a href="{% url 'AdminApp:car_list'%}">Cars</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Add</a></li>
+        </ol>
+    </div>   
+    <br>
+    <div class="container">
+        <h1 class="text-center text-primary display-6">Create a new car</h1>
+
+        <form method="post"  class="form-group">
+            {% csrf_token %}
+            <div class="row">
+                {% for field in form %}
+                    <div class="col-md-6">
+                        {{ field }}
+                    </div>
+                {% endfor %}
+            </div>         
+             <button type="submit" class="btn rounded-pill  btn-outline-primary py-3 px-5 mt-2 border-primary">Save</button>
+        </form>
+    </div>
+    <script>
+        function hideLabels() {
+            var labels = document.querySelectorAll('label');
+            labels.forEach(function(label) {
+                label.style.display = 'none';
+            });
+        }
+        window.onload = hideLabels;
+    </script>
+{% endblock %}

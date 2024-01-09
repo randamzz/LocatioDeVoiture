@@ -1,8 +1,9 @@
-
 {% extends "base.html" %}
+{% load static %}
  {% block content %}
- <!-- Single Page Header start -->
- <div class="container-fluid page-header py-5" style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
+ <h1>Cars</h1>
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5" style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
     <h1 class="text-center text-white display-6">Cars Catalog</h1>
     <ol class="breadcrumb justify-content-center mb-0">
         <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
@@ -10,75 +11,67 @@
     </ol>
 </div>
 <!-- Single Page Header End -->
-        <!-- Description des voiture va etre modifier avec par ex prix par jour Price Car name model -->
-        <div class="container-fluid fruite py-3">
-            <div class="container py-5">
-                <h1 class="mb-4">Best Cars For Rent</h1>
+<div class="container-fluid fruite py-3">
+    <div class="container py-5">
+        <h1 class="mb-4">Best Cars For Rent</h1>
+        <div class="row g-4">
+            <div class="col-lg-12">
                 <div class="row g-4">
-                    <div class="col-lg-12">
-                        <div class="row g-4">
-                            <div class="col-xl-3">
-                                <div class="input-group w-100 mx-auto d-flex">
-                                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-3"></div>
-                            <div class="col-xl-6">
-                                <div class="bg-light ps-6 py-6 rounded d-flex justify-content-between mb-4">
-                                    <label for="fruits"> Default Sorting</label>
-                                    <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
-                                        <option value="newest">Newest Cars</option>
-                                        <option value="oldest">Oldest Cars</option>
-                                        <option value="popular">Most Popular Cars</option>
-                                    </select>
-                                </div>
-                            </div>
+                    <div class="col-xl-3">
+                        <div class="input-group w-100 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                         </div>
-                        <div class="row g-4">
-                            <div class="col-lg-3">
-                                <div class="row g-4">
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
-                                            <br>
-                                            <h4>Categories</h4>
-                                            <ul class="list-unstyled fruite-categorie">
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-car-alt me-2"></i>Luxury Cars</a>
-                                                        <span>(3)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-car-alt me-2"></i>Standard Cars</a>
-                                                        <span>(5)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-car-alt me-2"></i>Economic Cars</a>
-                                                        <span>(2)</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                    </div>
+                    <div class="col-3"></div>
+                    <div class="col-xl-6">
+                        <div class="bg-light ps-6 py-6 rounded d-flex justify-content-between mb-4">
+                            <label for="fruits"> Default Sorting</label>
+                            <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
+                                <option value="all">All</option>
+                                {% for categorie , count in categories_count.items %}
+                                <option value="{{categorie}}">{{ categorie|capfirst }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row g-4">
+                                <div class="col-lg-3">
+                                    <div class="row g-4">
+                                        <div class="col-lg-12">
+                                            <div class="mb-3">
+                                                <br>
+                                                <h4>Categories</h4>
+                                                <ul class="list-unstyled fruite-categorie">
+                                                    {% for categorie, count in categories_count.items %}
+                                                    <li>
+                                                        <div class="d-flex justify-content-between fruite-name">
+                                                            <a href="#"><i class="fas fa-car-alt me-2"></i>{{ categorie }} Cars</a>
+                                                            <span>({{ count }})</span>
+                                                        </div>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
-                                            <h4 class="mb-2">Price</h4>
-                                            <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="0" max="500" value="0" oninput="amount.value=rangeInput.value">
-                                            <output id="amount" name="amount" min-velue="0" max-value="500" for="rangeInput">0</output>
+                                        <div class="col-lg-12">
+                                            <div class="mb-3">
+                                                <h4 class="mb-2">Price</h4>
+                                                <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="0" max="1000" value="0" oninput="updatePriceFilter(this.value)">
+                                                <output id="amount" name="amount" min-value="1000" max-value="1000" for="rangeInput"></output>               
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
+                                        <div class="row g-4 justify-content-center" id="car-list-reductions">
                                         <h4 class="mb-3">Reductions</h4>
+                                        {% for voiture in listDesVoitureAvecReduction %} 
                                         <div class="d-flex align-items-center justify-content-start">
                                             <div class="rounded me-4" style="width: 100px; height: 100px;">
                                                 <img src="https://th.bing.com/th/id/OIP.UNrwLVUuit02ewirSeht9gHaHm?w=550&h=564&rs=1&pid=ImgDetMain" class="img-fluid rounded" alt="">
                                             </div>
                                             <div>
-                                                <h6 class="mb-2">Mercedes-Benz E-Class</h6>
+                                                <h6 class="mb-2">{{voiture.marque|capfirst }}-{{voiture.model|capfirst }}</h6>
                                                 <div class="d-flex mb-2">
                                                     <i class="fa fa-star text-secondary"></i>
                                                     <i class="fa fa-star text-secondary"></i>
@@ -87,230 +80,60 @@
                                                     <i class="fa fa-star"></i>
                                                 </div>
                                                 <div class="d-flex mb-2">
-                                                    <h5 class="fw-bold me-2">500 MAD</h5>
-                                                    <h5 class="text-danger text-decoration-line-through">700 MAD</h5>
+                                                    <h5 class="fw-bold me-2">{{voiture.prix_jour}}</h5>
+                                                    <h5 class="text-danger text-decoration-line-through"> {{ voiture.prix_jour | add:100 }}MAD MAD</h5>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                                <img src="https://th.bing.com/th/id/OIP.Ct-eR_DfOb1ZbnZqZYDLQQHaE7?w=788&h=525&rs=1&pid=ImgDetMain" class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-2">Hyundai i20</h6>
-                                                <div class="d-flex mb-2">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="d-flex mb-2">
-                                                    <h5 class="fw-bold me-2">300 MAD</h5>
-                                                    <h5 class="text-danger text-decoration-line-through">400 MAD</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                                <img src="https://th.bing.com/th/id/OIP.c0TEHw5z-4ffT5Tu-3tjXQHaE6?rs=1&pid=ImgDetMain" class="img-fluid rounded" alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-2">Dacia Logan</h6>
-                                                <div class="d-flex mb-2">
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="d-flex mb-2">
-                                                    <h5 class="fw-bold me-2">250 MAD</h5>
-                                                    <h5 class="text-danger text-decoration-line-through">300 MAD</h5>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
+                                    </div>
                                         <div class="d-flex justify-content-center my-4">
-                                            <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">View More</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="position-relative">
-                                            <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="row g-4 justify-content-center">
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                            <button id="view-more-reductions-btn" class="btn border border-secondary px-4 py-3 rounded-pill text-primary">View More</button>                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="position-relative">
+                                                <!--Modifier lien d image !!!!-->
+                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded" alt="">
                                             </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <!-- Aviable ou nn selon si date de today inclu dans period de rent -> not avaible -->
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Audi RS3</h4>
-                                                <p>A high-performance compact car known for its speed, agility, and sleek design</p>
-                                                &nbsp;
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">700 MAD/ day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="row g-4 justify-content-center"  id="car-list" >
+                                            {% for voiture in listDesVoiture %}
+                                            <div class="col-md-6 col-lg-6 col-xl-4 fruite-item {{ voiture.categorie }}" data-price="{{ voiture.prix_jour }}"> 
+                                                <div class="rounded position-relative ">
+                                                    <div class="fruite-img">
+                                                        <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded" alt="">
+                                                        <!-- <img src="{{ voiture.image.url }}" class="img-fluid w-100 rounded-top" alt="Voiture Image">  -->
+                                                         <!-- Aviable ou nn selon si date de today inclu dans period de rent -> not avaible -->
+                                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                        <h4>{{voiture.marque|capfirst }}-{{voiture.model|capfirst }}  </h4>
+                                                        <p>{{voiture.description }} </p>
+                                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                                            <p class="text-dark fs-5 fw-bold mb-0">{{voiture.prix_jour}} MAD/ day</p>
+                                                            <a href="{% url 'CarsApp:details' voiture.id%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Peugeot 508</h4>
-                                                <p>An elegant and sophisticated sedan offering a blend of style, comfort, and advanced technology.</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">450 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
+
+                                            {% endfor %}
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Not Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Renault Clio</h4>
-                                                <p>A popular and practical hatchback loved for its compact size, efficiency, and modern features.</p>
-                                                &nbsp;
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">300 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
+                                        <div class="d-flex justify-content-between my-4">
+                                            <button id="prev-btn" class="btn border border-secondary px-4 py-3 rounded-pill text-primary">Previous</button>
+                                            <button id="next-btn" class="btn border border-secondary px-4 py-3 rounded-pill text-primary">Next</button>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Mercedes-Benz</h4>
-                                                <p>A luxurious executive sedan renowned for its refined interior, cutting-edge technology, and powerful performance.</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">750 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Seat Ibiza</h4>
-                                                <p>A sporty and versatile hatchback prized for its dynamic driving experience and compact yet spacious design.</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">   
-                                                    <p class="text-dark fs-5 fw-bold mb-0">400 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Volkswagen Golf 7</h4>
-                                                <p>An iconic hatchback celebrated for its reliability, practicality, and well-rounded performance.</p>
-                                                &nbsp;
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">600 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Mercedes-Benz</h4>
-                                                <p>A stylish and compact SUV delivering a mix of luxury, comfort, and impressive off-road capabilities.</p>
-                                                &nbsp;
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">700 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Opel Mokka</h4>
-                                                <p>A compact SUV offering a perfect balance of functionality, modern design, and efficient performance. <br> <br> <br> </p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">400 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="https://i.pinimg.com/564x/b8/21/ff/b821ff4bacecbb5bd6e19d311b7adb6a.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Availabe</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Hyundai i10</h4>
-                                                <p>A nimble city car cherished for its compact size, fuel efficiency, and user-friendly features <br>.</p>
-                                                &nbsp;
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">350 MAD / day</p>
-                                                    <a href="{% url 'CarsApp:details'%}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fas fa-car me-2 text-primary"></i> Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="pagination d-flex justify-content-center mt-5">
-                                            <a href="#" class="rounded">&laquo;</a>
-                                            <a href="#" class="active rounded">1</a>
-                                            <a href="#" class="rounded">2</a>
-                                            <a href="#" class="rounded">3</a>
-                                            <a href="#" class="rounded">4</a>
-                                            <a href="#" class="rounded">5</a>
-                                            <a href="#" class="rounded">6</a>
-                                            <a href="#" class="rounded">&raquo;</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        {% endblock %}
+    </div>
+</div>
+</div>
+</div>
+<script src="{% static 'js/catalog.js' %}"></script>
+<script src="{% static 'js/pagination.js' %}"></script>
+{% endblock %}
