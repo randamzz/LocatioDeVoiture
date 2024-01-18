@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">DriveCraft</h5>
+            </div> 
+            <div class="modal-body">
+                <center> <h1>Facture</h1> </center> 
+                <p id="currentDate"></p>
+                <p>Rented car: {{Voiture}}</p>
+                <p>Rented by Client: {{rented_by}}</p>
+                <p>For Client: {{ nom }} {{ prenom }}</p>
+
+                <hr>
+                </p>
+                <center> <p> Total is: {{ prix_total }} MAD </p></center> 
+                
+            </div>
+            <div class="modal-footer">
+<a href="{% url 'CarsApp:catalog'%}"class="btn btn-primary rounded-pill text-white">Confirme</a></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentDateElement = document.getElementById('currentDate');
+            var currentDate = new Date();
+            currentDateElement.textContent = ' ' + currentDate.toDateString();
+        });
+    </script>
+    
+
+{% endblock %}

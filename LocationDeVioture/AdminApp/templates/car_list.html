@@ -9,8 +9,14 @@
             <li class="breadcrumb-item text-dark"><a href="#">Cars</a></li>
         </ol>
     </div>
- <br>   <a href="{% url 'AdminApp:create_car' %}" class="btn btn-outline-primary">Add Car</a>
-<table class="table center">
+ <br>  
+ <a href="{% url 'AdminApp:create_car' %}" class="btn rounded-pill btn-outline-secondary">Add Car</a>
+ <br>  
+ <br>  
+ {% if object_list|length == 0 %}
+         <p>No cars available.</p>
+    {% else %}
+    <table class="table center">
     <thead class="center">
       <tr>
         <th scope="col">#</th>
@@ -33,14 +39,15 @@
           <td>{{ voiture.date_de_creation }}</td>
 
           <td>
-              <a href="{% url 'AdminApp:edit_car' pk=voiture.pk %}" class="btn btn-primary">Edit</a>
-              <a href="{% url 'AdminApp:delete_car' pk=voiture.pk %}" class="btn btn-danger">Delete</a> 
+              <a href="{% url 'AdminApp:edit_car' pk=voiture.pk %}" class="btn rounded-pill btn-primary text-light">Edit</a>
+              <a href="{% url 'AdminApp:delete_car' pk=voiture.pk %}" class="btn rounded-pill  btn-danger ">Delete</a> 
 
           </td>
       </tr>
   {% endfor %}
     </tbody>
   </table>
+  {% endif %}
 </div>
 
 {% endblock %}

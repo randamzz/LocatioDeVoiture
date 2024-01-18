@@ -19,6 +19,7 @@
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
+
 {% block login_content %}
       
 {% endblock %}
@@ -40,17 +41,19 @@
                         <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
                     </div>
                 </div>
-            </div>
+            </div><br>
             <div class="container px-0">
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">DriveCraft</h1></a>
+                    <a href="#" class="navbar-brand"><h1 class="text-primary display-6">DriveCraft</h1></a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse" style="height: 100px;">
                         <div class="navbar-nav mx-auto">
                             <a href="{% url 'home'%}" class="nav-item nav-link active">Home</a>
-                            <a href="#" class="nav-item nav-link">Search cars</a>
+                            {% if user.is_authenticated and user.is_staff %}                      
+                                  <a href="{% url 'AdminApp:car_list'%}" class="nav-item nav-link ">Cars managment </a>
+                            {% endif %}                           
                             <a href="{% url 'CarsApp:catalog'%}" class="nav-item nav-link">Cars catalog</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Popular</a>
@@ -65,15 +68,42 @@
                         </div>
                         <div class="d-flex m-3 me-2">
                           <ul class="navbar-text text-secondary">
-                            <button type="button" class="btn custom-btn2 btn-outline-dark">Rent now</button>
-                            <a href="{% url 'UsersApp:login'%}" ><button type="button" class="btn custom-btn "> Log in  </button> </a>     
-                           </ul>           
+                            {% if user.is_authenticated %}
+                            <div class="d-flex m-3 me-0 align-items-center">
+                                <a href="{% url 'ReservationsApp:user_reservation' %}" class="position-relative me-4 my-auto">
+                                    <i class="fa fa-shopping-bag fa-2x text-primary"></i>
+                                    <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                </a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                        <i class="fas fa-user fa-2x text-primary"></i>
+                                    </a>
+                                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                        <a href="#" class="dropdown-item">Welcome {{ user.username }}</a>
+                                        <a href="#" class="dropdown-item">Edit your profile</a>
+                                    </div>
+                                </div>
+                                <form method="post" action="{% url 'UsersApp:logout' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn custom-btn2 btn-outline-dark">Logout</button>
+                                </form>
+                            </div>
+                            
+                        {% else %}
+                            <a href="{% url 'UsersApp:register' %}">
+                                <button type="button" class="btn custom-btn2 btn-outline-dark">Sign up</button>
+                            </a>
+                            <a href="{% url 'UsersApp:login'%}" ><button type="button" class="btn custom-btn "> Log in  </button> </a>  
+
+                        {% endif %}                           
+                               </ul>           
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
         {% block content %}
+
         {% endblock %}
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
@@ -151,7 +181,7 @@
                         <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>DriveCraft</a>, All right reserved.</span>
                     </div>
                     <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        Designed By<a class="border-bottom" href="#">Randa Mousaab Saif</a>
+                        Designed By<a class="border-bottom" href="#">  Randa, Mousaab and Saif</a>
                     </div>
                 </div>
             </div>

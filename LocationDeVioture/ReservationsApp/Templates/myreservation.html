@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div style="background-color: #eee;">
+    <div class="container-fluid page-header py-5"
+        style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
+        <h1 class="text-center text-white display-6">My Reservations</h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Reservations</a></li>
+        </ol>
+    </div>
+    <section class="h-100" >
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-bold mb-0 text-primary">{{ user.username }} reservations</h3>
+                    </div>
+                    {% if userReservations|length == 0 %} 
+                    <p>You have not made any reservations yet.</p>
+                    <p>Go to <a href="{% url 'CarsApp:catalog'%}">Cars Catalog</a></p>
+                    {% else %}
+                    {% for reservation in userReservations %}
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body p-4">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                    <img src="{{reservation.car.image.url}}" class="img-fluid rounded-3" alt="Car Image">
+                                </div>
+                                <div class="col-md-4 col-lg-4 col-xl-4">
+                                    <p class="lead fw-bold mb-2">{{ reservation.car }}</p>
+                                    <p><span class="text-muted">Start Date: </span>{{ reservation.date_debut }} </p>
+                                    <p><span class="text-muted">End Date: </span>{{ reservation.date_fin }}</p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                    <h5 class="mb-0">{{ reservation.prix_total }} MAD</h5>
+                                </div>
+                                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,17 +1,15 @@
+# Dans urls.py
 from django.urls import path
-from .views import catalog, details
 from django.conf import settings
 from django.conf.urls.static import static
-# , VoitureListView, VoitureDetailView
+from .views import catalog
+from . import views
 
 app_name = 'CarsApp'
 urlpatterns = [
     path('catalog/', catalog, name='catalog'),
-    path('details/<int:voiture_id>/', details, name='details'),
-    # path('', VoitureListView.as_view(), name="Cars"),
-    # path('car/<int:pk>/', VoitureDetailView.as_view(), name="voiture_detail"),
+    path('details/<int:voiture_id>/', views.details, name='details'),  
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

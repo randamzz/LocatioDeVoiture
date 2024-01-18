@@ -1,13 +1,24 @@
-# Location de Voiture
-HAD SHI KHSO ITBDL BUT HADA GHI EX
-Ce projet Django permet à un utilisateur de consulter un catalogue de voitures, de choisir une voiture disponible, et de la réserver pour une période spécifique.
+# Système de Location de Voitures
+Ce projet est un système de location de voitures implémenté en utilisant Django. Les utilisateurs peuvent parcourir le catalogue de voitures, voir les détails de chaque voiture, effectuer des réservations et gérer les voitures.
 
 ## Fonctionnalités
 
-- Catalogue de voitures avec des détails tels que le modèle et l'année.
-- Possibilité de réserver une voiture disponible.
+- Page d'accueil :
+  - Message de bienvenue et liens de navigation.
 
-## Configurationpi
+- Catalogue de Voitures :
+  - Afficher une liste de voitures disponibles.
+  - Cliquer sur une voiture pour plus de détails.
+
+- Réservation :
+  - Authentification utilisateur requise pour effectuer une réservation.
+  - Entrer le nom du client, sélectionner une voiture et choisir la durée.
+  - Voir et confirmer la réservation.
+
+- Panneau d'administration :
+  - Opérations CRUD pour les voitures.
+
+## Configuration
 
 1. **Installation :**
    - Assurez-vous d'avoir Python et pip installés.
@@ -21,25 +32,30 @@ Ce projet Django permet à un utilisateur de consulter un catalogue de voitures,
    - Lancez le serveur de développement avec `python manage.py runserver`.
 
 4. **Accès à l'interface admin :**
-   - Accédez à l'interface admin à [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) en utilisant le superutilisateur créé.
+   - Accédez à l'interface admin à [http://127.0.0.1:8000/admin/] en utilisant le superutilisateur (login: ramosa, mot de passe: 123).
 
 ## Utilisation
 
-1. Accédez au catalogue de voitures à [http://127.0.0.1:8000/location/catalogue/](http://127.0.0.1:8000/location/catalogue/).
+### Réservation :
+1. Accédez au catalogue de voitures à [http://127.0.0.1:8000/car/catalog/].
 2. Choisissez une voiture disponible.
 3. Réservez la voiture en suivant le lien de réservation.
 
-## Contribution
+### Gestion des voitures :
+1. Connectez-vous avec un compte administrateur.
+2. Accédez à la page de gestion des voitures [http://127.0.0.1:8000/SupperAdmin/car_list].
+3. Effectuez les opérations CRUD nécessaires :
+   - Ajoutez une nouvelle voiture.
+   - Modifiez les détails d'une voiture existante.
+   - Supprimez une voiture.
 
-1. Forkez le projet.
-2. Créez une branche pour vos modifications : `git checkout -b feature/nouvelle-fonctionnalite`.
-3. Committez vos modifications : `git commit -m 'Ajout d'une nouvelle fonctionnalité'`.
-4. Poussez votre branche : `git push origin feature/nouvelle-fonctionnalite`.
-5. Créez une pull request.
+## Testes
 
-## Licence
+-Exécutez les tests avec :python manage.py test
 
-Ce projet est sous licence [Nom de la licence]. Voir le fichier [LICENSE.md](LICENSE.md) pour plus de détails.
+## Installation
+
+-Clonez le dépôt : git clone https://github.com/randamzz/LocatioDeVoiture
 
 ## Auteurs
 

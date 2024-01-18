@@ -1,8 +1,9 @@
-from django.shortcuts import render 
-from django.views.generic import ListView ,DetailView
-from .models import Voiture
+from django.shortcuts import render, get_object_or_404
+from .models import  Voiture
 from collections import Counter
 from Main.views import error
+from ReservationsApp.forms import ReservationForm 
+
 
 def get_categories_count(list_des_voitures):
     """
@@ -42,28 +43,32 @@ def catalog(request):
     
     
     
-def details(request):
-    voiture_detail = Voiture.objects.get(pk=1)
-    context = {'voiture_detail': voiture_detail}
+def details(request, voiture_id):
+    """
+    Affiche les détails d'une voiture spécifique 
+
+    Args:
+    - request: L'objet HttpRequest représentant la requête HTTP.
+    - voiture_id: L'identifiant de la voiture dont les détails seront affichés.
+
+    Returns:
+    HttpResponse: Une réponse HTTP avec les détails de la voiture et le formulaire de réservation.
+
+    Raises:
+    Http404: Si la voiture avec l'identifiant spécifié n'est pas trouvée.
+    """
+    voiture_detail = get_object_or_404(Voiture, pk=voiture_id)
+
+    reservation_form = ReservationForm()
+
+    context = {
+        'voiture_detail': voiture_detail,
+        'reservation_form': reservation_form,
+    }
+
     return render(request, 'details.html', context)
 
 
-
-
-
-
-
-
-
-
-
-# class VoitureListView(ListView):  
-#     model=Voiture
-#     template_name='Voiture/index.html'
-#     context_object_name='listVoiture'
-
-# class VoitureDetailView(DetailView): 
-#     model=Voiture
 
 
 

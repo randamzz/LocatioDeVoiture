@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-(^ud9)zz8-*mr3-(xv39l^+xj4=2j&m8=)ngj!j8!ni0)0wd8b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# Autoriser uniquement localhost (127.0.0.1) pour l'interface d'administration
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -39,14 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
+    # 'crispy_forms',
     'Main',
     'AdminApp',
     'ReservationsApp',
     'CarsApp',
     'UsersApp',
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -138,3 +138,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Set the login redirect URL to '/'
+LOGIN_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'UsersApp.CustomUser' 

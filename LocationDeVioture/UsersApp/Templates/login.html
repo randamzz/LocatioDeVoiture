@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% block login_content %}
-
 <link href="{% static 'css/login.css' %}" rel="stylesheet">
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-md-12 login_form">
 <div class="container-fluid py-3 mb-5 ">
     <div class="row main-content  text-center">
         <div class="col-md-4 text-center company__info">
@@ -13,35 +18,31 @@
                     <h1 class="text-primary display-6">Log In</h1>
                 </div>
                 <div class="row">
-                    <form control="" class="form-group">
-                        <div class="row">
-                            <input type="text" name="username" id="username" class="form__input" placeholder="Username">
-                        </div>
-                        <div class="row">
-                            <input type="password" name="password" id="password" class="form__input" placeholder="Password">
-                        </div>
-                      
+                    <form method="post" action="{% url 'UsersApp:login' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
                         <div class="row">
                             <div class="col-md-6 ">
-                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Shipping-3" name="remember_me" >
+                                <input type="checkbox" class="form-check-input bg-primary border-0" id="Shipping-3" name="remember_me">
                                 <label for="remember_me" class="ml-0">Remember Me!</label>
                             </div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary border-0 border-secondary rounded-pill text-white w-100">Submit</button>
                             </div>
-                        </div> 
+                        </div>
                     </form>
                 </div>
                 <br>
                 <div class="row">
-                    <p>Don't have an account? <a href="{% url 'UsersApp:register'%}">Register Here</a></p>
+                    <p>Don't have an account? <a href="{% url 'UsersApp:register' %}">Register Here</a></p>
                 </div>
                 <div class="row">
-                    <p>Go back to <a href="{% url 'home'%}">Home</a></p>
+                    <p>Go back to <a href="{% url 'home' %}">Home</a></p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 {% endblock %}

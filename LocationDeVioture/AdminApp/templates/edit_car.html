@@ -1,12 +1,44 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
+<link href="{% static 'css/register.css' %}" rel="stylesheet">
+<div class="container-fluid">
+    <div class="container-fluid page-header py-5" style=" background-image: url('https://th.bing.com/th/id/R.a1f8629b3af8415a7fa5a182e60af9f8?rik=88qU6ZfKRcGKwA&pid=ImgRaw&r=0')">
+        <h1 class="text-center text-white display-6">Edit a car </h1>
+        <ol class="breadcrumb justify-content-center mb-0">
+            <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Admin</a></li>
+            <li class="breadcrumb-item text-dark"><a href="{% url 'AdminApp:car_list'%}">Cars</a></li>
+            <li class="breadcrumb-item text-dark"><a href="#">Edit</a></li>
+        </ol>
+    </div>   
+    <br>
     <div class="container">
-        <h2>Edit Car</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Save Changes</button>
-        </form>
+        <h1 class="text-center text-primary display-6">Update your car</h1>
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Error:</strong>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    {{ field }}: {{ error }}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post" class="form-group" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            {% for field in form %}
+                <div class="col-md-6">
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div> 
+        <button type="submit" class="btn rounded-pill  btn-outline-secondary py-3 px-5 mt-2 border-primary text-primary">Save Changes</button> 
+        <a href="{% url 'AdminApp:car_list'%}"  class="btn rounded-pill  btn-outline-danger py-3 px-5 mt-2 border-danger">Cancel</a> 
+    </form>
     </div>
+    <script src="{% static 'js/admin.js' %}"></script>
+</div>
+
 {% endblock %}

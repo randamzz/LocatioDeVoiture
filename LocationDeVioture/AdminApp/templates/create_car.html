@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <link href="{% static 'css/register.css' %}" rel="stylesheet">
 <div class="container-fluid">
@@ -16,8 +15,17 @@
     <br>
     <div class="container">
         <h1 class="text-center text-primary display-6">Create a new car</h1>
-
-        <form method="post"  class="form-group">
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Error:</strong>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    {{ field }}: {{ error }}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+        <form method="post"  class="form-group"  enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">
                 {% for field in form %}
@@ -27,15 +35,10 @@
                 {% endfor %}
             </div>         
              <button type="submit" class="btn rounded-pill  btn-outline-primary py-3 px-5 mt-2 border-primary">Save</button>
+            <a href="{% url 'AdminApp:car_list'%}"  class="btn rounded-pill  btn-outline-danger py-3 px-5 mt-2 border-danger">Cancel</a> 
+
         </form>
     </div>
-    <script>
-        function hideLabels() {
-            var labels = document.querySelectorAll('label');
-            labels.forEach(function(label) {
-                label.style.display = 'none';
-            });
-        }
-        window.onload = hideLabels;
-    </script>
+    <script src="{% static 'js/admin.js' %}"></script>
+
 {% endblock %}
